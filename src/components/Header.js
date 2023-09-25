@@ -1,9 +1,10 @@
 import React from "react";
+import MainPageImg from "./MainPageImg";
 
 const Header = () => {
   return (
     <>
-      <div className="flex items-center justify-around   bg-black">
+      <div className="flex items-center justify-around bg-black ">
         <div>
           <img
             className="  w-40 md:w-60 "
@@ -35,6 +36,9 @@ const Header = () => {
             STARLINK
           </h1>
         </div>
+      </div>
+      <div>
+        {/* <MainPageImg /> */}
       </div>
     </>
   );
