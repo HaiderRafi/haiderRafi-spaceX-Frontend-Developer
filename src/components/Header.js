@@ -4,7 +4,7 @@ import MainPageImg from "./MainPageImg";
 const Header = () => {
   return (
     <>
-      <header>
+      <header data-test-id="header1">
         <div className="flex items-center justify-around bg-black ">
           <div>
             <a href="/">
