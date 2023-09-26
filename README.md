@@ -32,6 +32,6 @@ Contributions are welcome! If you'd like to enhance this project, please follow 
 * Open a pull request.
 
 ### `Contact`
-For any inquiries or questions, please contact your-haiderrafi.7@gmail.com
+For any inquiries or questions, please contact your :- haiderrafi.7@gmail.com
 
 Feel free to enhance this README template with additional sections such as installation steps, deployment instructions, screenshots, and more. Make sure to tailor the information to accurately reflect your application and its features.
