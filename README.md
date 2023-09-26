@@ -5,6 +5,9 @@ This project is a clone of SpaceX's website, providing a user-friendly and respo
 ### `Live Link`
 https://spacex-haider-brainstorm.netlify.app/
 
+### `Video Link`
+https://drive.google.com/file/d/1OZUiD5BHcYJJF1TRnFYgIjHmjOmjg1d6/view
+
 ### `Key Features`
 * Browse detailed information about SpaceX capsules, including their serial numbers, types, and launch histories.
 * Filter capsules by their status, type, and launch date.
