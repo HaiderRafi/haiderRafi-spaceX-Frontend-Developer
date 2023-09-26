@@ -4,6 +4,7 @@ import MainPageImg from "./MainPageImg";
 const Header = () => {
   return (
     <>
+    <header>
       <div className="flex items-center justify-around bg-black ">
         <div>
           <img
@@ -37,7 +38,9 @@ const Header = () => {
           </h1>
         </div>
       </div>
+      </header>
       <div>
+      
         {/* <MainPageImg /> */}
       </div>
     </>
