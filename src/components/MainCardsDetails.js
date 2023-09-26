@@ -17,7 +17,8 @@ const MainCardsDetails = () => {
   let [filterApiData, setFilterApiData] = useState([]); //filtered Data state
   let [filterStatus, setFilterStatus] = useState(""); //dropDown state for status
   let [filterType, setFilterType] = useState(""); //dropDown state for Type
-  let [filterDate, setFilterDate] = useState("");
+  let [filterDate, setFilterDate] = useState(""); //dropDown state for Date
+  let [page, setPage] = useState(1); //for Pagination
 
   //async function for apiCall
   async function apiFunc() {
@@ -54,9 +55,15 @@ const MainCardsDetails = () => {
   if (apiData.length === 0) {
     return <Shimmer />;
   }
-  // if (filterApiData.length === 0) {
-  //   return <h1>Loading.....</h1>;
-  // }
+
+  //handle prev pagination
+  function handlePrev(){
+    setPage(1);
+  }
+
+  function handleNext(){
+    setPage(2)
+  }
 
   return (
     <>
@@ -115,19 +122,29 @@ const MainCardsDetails = () => {
       <div className="flex justify-center">
         <div className="flex flex-wrap w-[1000px]  justify-center p-2 m-2">
           {/* conditional rendering */}
-          
+
           {filterApiData && filterApiData.length === 0 ? (
             // <p className="text-center text-red-500 font-bold">Not Found</p>
             <img className="" alt="notFound" src={NOT_FOUND} />
           ) : (
-            filterApiData.map((data, index) => (
-              <Link key={index} to={`capsule/${data.capsule_serial}`}>
-                <MainCardSingle key={index} item={data} />
-              </Link>
-            ))
+            filterApiData
+              .slice(page * 10 - 10, page * 10)      //pagination added with the help of slice
+              .map((data, index) => (
+                <Link key={index} to={`capsule/${data.capsule_serial}`}>
+                  <MainCardSingle key={index} item={data} />
+                </Link>
+              ))
           )}
         </div>
       </div>
+
+      {/* for pagination buttons */}
+      {filterApiData.length != 0 && (
+        <div className="flex justify-center">
+          <button onClick={handlePrev} className="p-2 m-4 font-bold border border-orange-500 hover:shadow-lg hover:border-orange-600">PREV</button>
+          <button onClick={handleNext} className="p-2 m-4 font-bold border border-orange-500 hover:shadow-lg hover:border-orange-600">NEXT</button>
+        </div>
+      )}
     </>
   );
 };
