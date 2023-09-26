@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { ALL_CAPSULES } from "../utils/constant";
+import { ALL_CAPSULES, NOT_FOUND } from "../utils/constant";
 import MainCardSingle from "./MainCardSingle";
+import { Link } from "react-router-dom";
+import Shimmer from "./Shimmer";
 
 //making a single function for filtering with 3 parameters
 //key is static
@@ -50,8 +52,11 @@ const MainCardsDetails = () => {
   }, [filterDate]);
 
   if (apiData.length === 0) {
-    return <h1>Loading.....</h1>;
+    return <Shimmer />;
   }
+  // if (filterApiData.length === 0) {
+  //   return <h1>Loading.....</h1>;
+  // }
 
   return (
     <>
@@ -78,7 +83,7 @@ const MainCardsDetails = () => {
         {/* <div className="pr-2 m-2 p-2 border border-black  "> */}
         {/* <div className=" pr-2 m-2 p-2 border border-black sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6  "> */}
         {/* for filter by type */}
-        
+
         <div className=" pr-2 m-2 p-2 border border-black  ">
           <label htmlFor="typeFilter">Filter by Type:</label>
           <select
@@ -109,11 +114,18 @@ const MainCardsDetails = () => {
 
       <div className="flex justify-center">
         <div className="flex flex-wrap w-[1000px]  justify-center p-2 m-2">
-          {/* <h1>sadsadasdsad</h1> */}
-          {filterApiData &&
-            filterApiData.map((data, index) => {
-              return <MainCardSingle key={index} item={data} />;
-            })}
+          {/* conditional rendering */}
+          
+          {filterApiData && filterApiData.length === 0 ? (
+            // <p className="text-center text-red-500 font-bold">Not Found</p>
+            <img className="" alt="notFound" src={NOT_FOUND} />
+          ) : (
+            filterApiData.map((data, index) => (
+              <Link key={index} to={`capsule/${data.capsule_serial}`}>
+                <MainCardSingle key={index} item={data} />
+              </Link>
+            ))
+          )}
         </div>
       </div>
     </>
