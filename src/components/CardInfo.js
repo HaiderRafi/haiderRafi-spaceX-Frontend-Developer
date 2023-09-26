@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ONE_CAPSULE_DATA } from '../utils/constant';
+import Shimmer from './Shimmer';
 
 const CardInfo = () => {
     let params= useParams();
@@ -20,7 +21,7 @@ const CardInfo = () => {
     },[])
 
     if(apiData.length===0){
-        return <h1>Loading...</h1>
+        return <Shimmer/>
     }
     
   return (
