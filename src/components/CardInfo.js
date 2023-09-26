@@ -30,7 +30,7 @@ const CardInfo = () => {
       <div className="flex justify-evenly pt-5">
         <button
           onClick={() => window.history.back()}
-          className=" p-2 m-4 font-bold border border-orange-500 hover:shadow-lg hover:border-orange-600"
+          className=" p-2 m-4 font-bold border border-orange-500 hover:shadow-lg hover:border-black hover:bg-gray-800 hover:text-white"
         >
           BACK
         </button>
